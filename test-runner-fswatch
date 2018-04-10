@@ -1,0 +1,6 @@
+// Automatically run tests
+
+// Navigate to the folder containing the the test file and run:
+
+// brew install fswatch
+// fswatch -o . | xargs -n1 jasmine [exercise-name-here].spec.js

@@ -36,9 +36,3 @@ describe('toRna()', function() {
       );
   });
 });
-
-
-// Automatically run tests
-
-// brew install fswatch
-// fswatch -o . | xargs -n1 jasmine rna-transcription.spec.js
