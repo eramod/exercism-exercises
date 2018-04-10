@@ -10,22 +10,21 @@ Hamming.prototype.compute = function(string1, string2) {
 
   let diffCount = 0;
 
-  string1 = string1.split('')
-  string2 = string2.split('')
+  string1 = string1.split('');
+  string2 = string2.split('');
 
-  for ( let i = 0; i < string1.length; i++ ) {
-    if( this.equivalent( string1[i], string2[i] ) === 1 ) {
-      diffCount++;
-    }
+  string1.forEach((letter, index) => {
+    diffCount = diffCount + this.equivalent( letter, string2[index] )
+  })
 
-  }
   return diffCount;
-
 };
 
 
-Hamming.prototype.equivalent = function(string1, string2) {
-  if ( string1 === string2 ) {
+Hamming.prototype.equivalent = function(letter1, letter2) {
+  // When a function always has the same return type, it makes it more
+  //  composable
+  if ( letter1 === letter2 ) {
     return 0;
   } else {
     return 1;
