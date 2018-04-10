@@ -2,22 +2,19 @@ var Hamming = function() {};
 
 
 Hamming.prototype.compute = function(string1, string2) {
-  // Takes 2 strings and returns the number of differences
+  // The compute function take 2 strings and returns the number
+  //  of differences
 
   if ( string1.length !== string2.length ) {
     throw new Error('DNA strands must be of equal length.');
   }
 
-  let diffCount = 0;
-
-  string1 = string1.split('');
-  string2 = string2.split('');
-
-  string1.forEach((letter, index) => {
-    diffCount = diffCount + this.equivalent( letter, string2[index] )
-  })
-
-  return diffCount;
+  return string1.split('').reduce((diffCount, letter, index) => {
+    // This inner return is for the callback function passed to reduce
+    // Its return value becomes the diffCount for the next iteration of
+    //  the loop
+    return diffCount + this.equivalent( letter, string2[index] )
+  }, 0)
 };
 
 
